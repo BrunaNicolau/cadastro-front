@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="form-container">
+    <mat-form-field>
+      <mat-label>CPF</mat-label>
+      <input
+        matInput
+        required
+        maxlength="14"
+        mask="000.000.000-00"
+        [(ngModel)]="cpf"
+        name="cpf"
+        #cpfInput="ngModel"
+      />
+      <mat-error *ngIf="cpfInput.invalid && cpfInput.touched">
+        CPF é obrigatório
+      </mat-error>
+    </mat-form-field>
+    <button
+      mat-mini-fab
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+      (click)="searchUser()"
+    >
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
+  <div class="form-container" *ngIf="showUserData">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>Dados do Usuário</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Nome: {{ userDataList.nome }}</p>
+        <p>Sexo: {{ userDataList.sexo }}</p>
+        <p>CPF: {{ userDataList.cpf }}</p>
+        <p>Email: {{ userDataList.email }}</p>
+        <p>Celular: {{ userDataList.celular }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

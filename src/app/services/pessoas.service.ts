@@ -1,31 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { IDadosPessoas } from '../model/PersonData.model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class PessoasService {
+  constructor(private readonly http: HttpClient) {}
 
-    constructor(
-        private readonly http: HttpClient
-    ) { }
+  getAllUser(): Observable<IDadosPessoas[]> {
+    return this.http
+      .get<IDadosPessoas[]>('/api/todasPessoas')
+      .pipe(map((res: any) => res as any));
+  }
 
-    get(): Observable<IDadosPessoas[]> {
-        return this.http.get<IDadosPessoas[]>('/api/pessoas/')
-            .pipe(
-                catchError((err) => {
-                    return throwError(() => err)
-                }),
-            );
-    }
-}
+  registerUser(req: IDadosPessoas): Observable<IDadosPessoas> {
+    return this.http
+      .post<IDadosPessoas[]>('/api/cadastro', req)
+      .pipe(map((res: any) => res as any));
+  }
 
-export interface IDadosPessoas {
-    nome: string;
-    cpf: string;
-    sexo: string;
-    email: string;
-    celular: string;
+  getUserByCpf(cpf: string): Observable<any> {
+    return this.http
+      .get<IDadosPessoas[]>('/api/pessoa/' + cpf)
+      .pipe(map((res: any) => res as any));
+  }
 }

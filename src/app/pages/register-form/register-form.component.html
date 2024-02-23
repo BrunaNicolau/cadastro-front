@@ -1,0 +1,69 @@
+<div class="container">
+  <form [formGroup]="newUserForm" (ngSubmit)="confirm()">
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="nome" required />
+      <mat-error *ngIf="newUserForm.get('nome')?.hasError('required')">
+        Nome é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Sexo</mat-label>
+      <mat-select formControlName="sexo" required>
+        <mat-option
+          *ngFor="let option of genderOptions"
+          [value]="option.value"
+          >{{ option.label }}</mat-option
+        >
+      </mat-select>
+      <mat-error *ngIf="newUserForm.get('sexo')?.hasError('required')">
+        Sexo é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>CPF</mat-label>
+      <input
+        matInput
+        formControlName="cpf"
+        maxlength="14"
+        mask="000.000.000-00"
+        required
+      />
+      <mat-error *ngIf="newUserForm.get('cpf')?.hasError('required')">
+        CPF é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" required />
+      <mat-error *ngIf="newUserForm.get('email')?.hasError('required')">
+        Email é obrigatório
+      </mat-error>
+      <mat-error *ngIf="newUserForm.get('email')?.hasError('invalidEmail')">
+        Email inválido
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Celular</mat-label>
+      <input
+        matInput
+        formControlName="celular"
+        maxlength="10"
+        mask="00000-0000"
+        required
+      />
+      <mat-error *ngIf="newUserForm.get('celular')?.hasError('required')">
+        Celular é obrigatório
+      </mat-error>
+    </mat-form-field>
+
+    <div class="align-btn-row">
+      <button mat-raised-button color="primary" type="submit">Enviar</button>
+      <button mat-raised-button color="secondary" (click)="goPesquisa()" class="align-btn">Pesquisa</button>
+    </div>
+  </form>
+</div>

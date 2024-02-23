@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'cadastro-front';
+  constructor(private changeDetector: ChangeDetectorRef) {}
+
+  ngAfterContentChecked() {
+    this.changeDetector.detectChanges();
+  }
 }
