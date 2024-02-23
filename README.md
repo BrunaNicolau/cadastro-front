@@ -1,27 +1,48 @@
-# CadastroFront
+# Cadastro FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+Este é um projeto Angular de exemplo para cadastro proposto pelo Itaú. 
 
-## Development server
+## Pré-requisitos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Antes de começar, certifique-se de ter atendido aos seguintes requisitos:
 
-## Code scaffolding
+- Node.js instalado na sua máquina. Versão 16.17 ou superior.
+- Você pode verificar a versão do Node.js usando o seguinte comando no terminal:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+node -v
+```
 
-## Build
+## Instalação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para instalar as dependências do projeto, execute o seguinte comando no terminal:
 
-## Running unit tests
+```bash
+npm install --legacy-peer-deps
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Executando o Projeto
 
-## Running end-to-end tests
+Para iniciar o servidor de desenvolvimento, utilize o seguinte comando:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm start
+```
 
-## Further help
+### Scripts Disponíveis
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+No diretório do projeto, você pode executar os seguintes scripts:
+
+- npm start: Inicia o servidor de desenvolvimento.
+- npm run build: Compila o projeto para produção.
+- npm run watch: Compila o projeto e observa mudanças.
+- npm test: Executa os testes unitários.
+
+### Tecnologias Utilizadas
+
+- Angular
+- @angular/material
+- ngx-mask
+- RxJS
+
+
